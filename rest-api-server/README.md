@@ -1,7 +1,4 @@
 HEAD
-HEAD
-
-bae3f87 (feat: NestJS 프로젝트 구조 통합)
 # Project
 - ** REST API 서버 작업
 
@@ -11,7 +8,6 @@ bae3f87 (feat: NestJS 프로젝트 구조 통합)
 
 - ** 라즈베리파이 
 - ** 
-HEAD
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
@@ -112,5 +108,3 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 20175ac (chore: NestJS 프로젝트 초기 환경 세팅)
-=======
-bae3f87 (feat: NestJS 프로젝트 구조 통합)

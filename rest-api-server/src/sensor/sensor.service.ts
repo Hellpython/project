@@ -10,22 +10,27 @@ export class SensorData {
 export class SensorService {
   private readonly logger = new Logger(SensorService.name);
 
-  // 컨트롤러가 시키는 일을 실제로 처리하는 함수
   processSensorData(data: SensorData) {
-    this.logger.log('--- [Service] 데이터 처리 중 ---');
-    
-    // 로직 예시: 온도가 30도가 넘으면 경고 로그 추가
-    if (data.temperature > 30) {
+    this.logger.log('--- [Raspberry Pi Server] 데이터 처리 시작 ---');
+
+    // 1. 단순한 상태 판별 로직 추가
+    const status = data.temperature > 30 ? 'WARNING' : 'NORMAL';
+
+    if (status === 'WARNING') {
       this.logger.warn(`🔥 고온 감지! 현재 온도: ${data.temperature}°C`);
     }
 
-    console.log(`🌡️  가공된 온도: ${data.temperature}°C`);
-    console.log(`💧 가공된 습도: ${data.humidity}%`);
-
+    // 2. 처리 결과 반환 (장치 식별자 포함)
     return {
       success: true,
+      deviceId: 'RPI-NODE-01', // 이 서버가 라즈베리파이임을 알림
+      status: status,
+      data: {
+        temp: data.temperature,
+        humi: data.humidity,
+      },
       processedAt: new Date().toISOString(),
-      message: '서비스에서 안전하게 처리되었습니다.',
+      message: '라즈베리파이에서 데이터를 성공적으로 가공했습니다.',
     };
   }
 }
